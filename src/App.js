@@ -6,11 +6,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <nav>
-          Home
-          Logo
-          Menu
+          <span>Home</span>
+          <span>Logo</span>
+          <span>Menu</span>
         </nav>
       </header>
+      <section>
+        <div>
+          Home page
+        </div>
+      </section>
     </div>
   );
 }
