@@ -1,21 +1,23 @@
 import './App.css';
 import React from 'react';
 
+//components
+import Navigation from './components/Navigation';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <nav>
-          <span>Home</span>
-          <span>Logo</span>
-          <span>Menu</span>
-        </nav>
+        <Navigation />
       </header>
       <section>
         <div>
           Home page
         </div>
       </section>
+      <footer>
+        Check
+      </footer>
     </div>
   );
 }
