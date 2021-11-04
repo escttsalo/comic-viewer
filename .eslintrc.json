@@ -5,9 +5,6 @@
         "es2021": true,
         "jest": true
     },
-    "extends": [
-        "react-app"
-    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -19,5 +16,7 @@
     ],
     "rules": {
         "semi": "error"
-    }
+    },
+    "extends": "react-app",
+    "ignorePatterns": ["src/__tests__/**, **/*.spec.js"]
 }

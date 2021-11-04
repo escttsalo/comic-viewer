@@ -1,52 +1,47 @@
 import React from 'react';
-import { Box, Icon, Navbar } from 'react-bulma-components';
-
-// const home = () => {
-//     return (
-//         <Box>
-//             {/* <Icon renderAs={Link} color="primary" to="/" style={{ border: '1px solid red'}}> */}
-//             <Icon style={{ color:'turquoise'}}>
-//                 <i className="fas fa-home fa-2x" />
-//             </Icon>
-//         </Box>
-//     );
-// };
-
-const logo = () => {
-    return (
-        <Box flexDirection={'column'} justifyContent={'space-around'} style={{ color: 'turquoise'}}>
-            <Icon style={{ color: 'turquoise'}}>
-                <i className="fab fa-github fa-3x"/>
-            </Icon>
-        </Box>
-    );
-};
-
-// const menu = () => {
-//     return ( 
-//         <Box>
-            
-//         </Box>
-//     );
-// };
+import { Navbar } from 'react-bulma-components';
 
 export default function Navigation(){
     return (
-        <Navbar color={'dark'}>
-            <Navbar.Brand renderAs={'div'} href="#">
-                {/* <Navbar.Link active={false}> */}
-                    { logo() }
-                {/* </Navbar.Link> */}
+        <Navbar color={'dark'} size={'large'}>
+            {/* left side */}
+            <Navbar.Brand>
+                <Navbar.Item href="https://github.com/escttsalo/comic-viewer">
+                    <i className="fab fa-github fa-3x"/>
+                </Navbar.Item>
+                {/* Hamburger style menu in mobile */}
+                <Navbar.Burger />
             </Navbar.Brand>
-            <span>Menu</span>
+            {/*Menu on right */}
+            <Navbar.Menu>
+                <Navbar.Container>
+                    <Navbar.Item href="#">
+                        <Navbar.Link>
+                        First
+                        </Navbar.Link>
+                        <Navbar.Dropdown>
+                            <Navbar.Item href="#">
+                                Subitem 1
+                            </Navbar.Item>
+                            <Navbar.Item href="#">
+                                Subitem 2
+                            </Navbar.Item>
+                            <Navbar.Divider />
+                            <Navbar.Item href="#">
+                                After divider
+                            </Navbar.Item>
+                        </Navbar.Dropdown>
+                    </Navbar.Item>
+                    <Navbar.Item href="#">
+                        Second
+                    </Navbar.Item>
+                </Navbar.Container>
+                <Navbar.Container align="end">
+                    <Navbar.Item href="#">
+                        At the end
+                    </Navbar.Item>
+                </Navbar.Container>
+            </Navbar.Menu>
         </Navbar>
-
-        // <nav>
-        //     {
-        //         home()
-        //     }
-        //     <span>Logo</span>
-        //     <span>Menu</span>
-        // </nav>
     );
 };

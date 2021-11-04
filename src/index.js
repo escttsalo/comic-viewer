@@ -13,7 +13,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//I'll explain later promise
+//App is being declared here in case of any helper functions in the future. e.g. auth
 function App() {
   return (
     <div className="App">
