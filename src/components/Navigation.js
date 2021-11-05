@@ -1,47 +1,94 @@
-import React from 'react';
-import { Navbar } from 'react-bulma-components';
+import React, { useState } from 'react';
+import { Button, Box, Message, Navbar, Form} from 'react-bulma-components';
+
+const {Brand, Item, Burger, Container, Menu, Link, Dropdown } = Navbar;
+const {Field, Label, Control, Input, Help} = Form;
 
 export default function Navigation(){
+    let [isActive, setActive] = useState('');
+
+    const handleClick = e => {
+        e.preventDefault();
+        isActive==='' ? setActive("is-active") : setActive(isActive="");
+    };
+
     return (
-        <Navbar color={'dark'} size={'large'}>
+        <Navbar color={'danger'} size={'large'} transparent={true}>
             {/* left side */}
-            <Navbar.Brand>
-                <Navbar.Item href="https://github.com/escttsalo/comic-viewer">
+            <Brand>
+                <Item href="https://github.com/escttsalo/comic-viewer">
                     <i className="fab fa-github fa-3x"/>
-                </Navbar.Item>
+                </Item>
+
+                <Item href="https://github.com/escttsalo/comic-viewer">
+                    <img 
+                        alt="Bulma: a modern CSS framework based on Flexbox"
+                        height="28"
+                        src="https://bulma.io/images/bulma-logo.png"
+                        width="112"
+                    />
+                </Item>
                 {/* Hamburger style menu in mobile */}
-                <Navbar.Burger />
-            </Navbar.Brand>
+                <Burger data-target='navbarmenu' onClick={handleClick} className={isActive}/>
+            </Brand>
+
             {/*Menu on right */}
-            <Navbar.Menu>
-                <Navbar.Container>
-                    <Navbar.Item href="#">
-                        <Navbar.Link>
-                        First
-                        </Navbar.Link>
-                        <Navbar.Dropdown>
-                            <Navbar.Item href="#">
-                                Subitem 1
-                            </Navbar.Item>
-                            <Navbar.Item href="#">
-                                Subitem 2
-                            </Navbar.Item>
-                            <Navbar.Divider />
-                            <Navbar.Item href="#">
-                                After divider
-                            </Navbar.Item>
-                        </Navbar.Dropdown>
-                    </Navbar.Item>
-                    <Navbar.Item href="#">
-                        Second
-                    </Navbar.Item>
-                </Navbar.Container>
-                <Navbar.Container align="end">
-                    <Navbar.Item href="#">
-                        At the end
-                    </Navbar.Item>
-                </Navbar.Container>
-            </Navbar.Menu>
+            <Menu id='navbarmenu' className={isActive}>
+                <Container>
+                    {/* fluff */}
+                </Container>
+                <Container align="right" style={{width: 300 , justifyContent: 'space-around'}}>
+                    <Item href="#" renderAs='div' hoverable={true} > 
+                        <Link color='light' arrowless={true} renderAs='div' style={{width: 300 , justifyContent: 'space-around'}} >
+                            <Button color='light' renderAs='span' >
+                                Login
+                            </Button>
+                        </Link>
+                        <Dropdown right={true}>
+                            <Item href='#' style={{flexDirection: 'row-reverse'}}>
+                                <Box>
+                                    <Message color='info' size='small'>
+                                        <Message.Body>
+                                            Please enter your login credentials.
+                                        </Message.Body>
+                                    </Message>
+                                    <Field>
+                                        <Label>
+                                            Username
+                                        </Label>
+                                        <Control>
+                                            <Input 
+                                                placeholder='Username'
+                                                type='text'
+                                            />
+                                        </Control>
+                                        <Help> Invalid username! </Help>
+
+                                        <Label>
+                                            Password
+                                        </Label>
+                                        <Control>
+                                            <Input 
+                                                placeholder='Password'
+                                                type='text'
+                                            />
+                                        </Control>
+                                        <Help> Invalid password! </Help>
+
+                                        <Field>
+                                            <Control>
+                                                <Button color='link'>
+                                                    Send
+                                                </Button>
+                                            </Control>
+                                        </Field>
+                                    </Field>
+                                </Box>
+                            </Item>
+                        </Dropdown>
+                    </Item>
+                </Container>
+            </Menu>
         </Navbar>
     );
 };
