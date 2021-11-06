@@ -13,14 +13,14 @@ export default function Navigation(){
     };
 
     return (
-        <Navbar color={'danger'} size={'large'} transparent={true}>
+        <Navbar color={'dark'} size={'large'} transparent={true}>
             {/* left side */}
             <Brand>
                 <Item href="https://github.com/escttsalo/comic-viewer">
                     <i className="fab fa-github fa-3x"/>
                 </Item>
 
-                <Item href="https://github.com/escttsalo/comic-viewer">
+                <Item href="https://github.com/escttsalo/comic-viewer" backgroundColor='danger'>
                     <img 
                         alt="Bulma: a modern CSS framework based on Flexbox"
                         height="28"
@@ -40,7 +40,7 @@ export default function Navigation(){
                 <Container align="right" style={{width: 300 , justifyContent: 'space-around'}}>
                     <Item href="#" renderAs='div' hoverable={true} > 
                         <Link color='light' arrowless={true} renderAs='div' style={{width: 300 , justifyContent: 'space-around'}} >
-                            <Button color='light' renderAs='span' >
+                            <Button color='danger' renderAs='span' >
                                 Login
                             </Button>
                         </Link>

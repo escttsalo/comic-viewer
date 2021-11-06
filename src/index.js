@@ -5,6 +5,7 @@ import 'bulma/css/bulma.min.css';
 
 //components
 import Navigation from './components/Navigation';
+import Home from './components/Home';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,11 +21,9 @@ function App() {
       <header className="App-header">
         <Navigation />
       </header>
-      <section>
-        <div>
-          Home page
-        </div>
-      </section>
+      
+      <Home />
+
       <footer>
         Check
       </footer>
