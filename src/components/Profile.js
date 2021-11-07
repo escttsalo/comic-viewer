@@ -77,9 +77,13 @@ export default function Profile() {
 
                     {/* Favourites */}
                     <Column size={'one-third'} offset={2}>
-                        <Notification backgroundColor='dark' color='black'>
-                            Favourites
-                        </Notification>
+                        <Box backgroundColor='black'>
+                            <Notification backgroundColor='dark' color='black' textAlign='center'>
+                                <Heading textFamily='code'>
+                                    Favourites
+                                </Heading>
+                            </Notification>
+                        </Box>
                     </Column>
                 </Columns>
             </Section>
