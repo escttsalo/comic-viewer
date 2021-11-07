@@ -6,6 +6,7 @@ import 'bulma/css/bulma.min.css';
 //components
 import Navigation from './components/Navigation';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,9 +25,7 @@ function App() {
       
       <Home />
 
-      <footer>
-        Check
-      </footer>
+      <Footer />
     </div>
   );
 }
