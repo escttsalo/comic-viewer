@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Block, Form, Heading, Box, Section, Notification, Columns, Icon } from 'react-bulma-components'; //eslint-disable-line
 const { Column } = Columns;
@@ -13,6 +13,28 @@ const commonStyles = {
 export default function Profile() {
     const username = "Username";
     const email = "Email";
+
+    //will be get by api
+    // const getCurrentRole = () => {
+    //     return User.role
+    // };
+    let [currentRole, setCurrentRole] = useState("User");
+
+    const roles = [
+        "User",
+        "Creator",
+        "Moderator",
+        "Admin"
+    ];
+
+    const handleChange = event => {
+        event.preventDefault();
+        if (event.target.value === "Creator"){
+            setCurrentRole("Creator");
+        } else {
+            setCurrentRole("User");
+        }
+    };
 
     return (
         <div>
@@ -59,33 +81,32 @@ export default function Profile() {
 
                                     <Field style={{marginLeft: '5%'}} backgroundColor='dark'>
                                         <Control backgroundColor='dark'>
-                                            <Select value='op1' backgroundColor='grey-light' color='grey-light' status='focus'>
-                                                <option value='op1'>
-                                                    User
-                                                </option>
-                                                <option value='op2'>
-                                                    Creator
-                                                </option>
-                                                <option value='op3'>
-                                                    Moderator
-                                                </option>
-                                                <option value='op4'>
-                                                    Admin
-                                                </option>
+                                            <Select onChange={handleChange} value={ `${currentRole}`} backgroundColor='grey-light' color='grey-light' status='focus'>
+                                                {
+                                                    roles.map( role => (
+                                                        <option value={role}>
+                                                            {role}
+                                                        </option>)
+                                                    )
+                                                }
                                             </Select>
                                         </Control>
                                     </Field>
 
-                                    <Notification 
-                                        to={'/creator'} 
-                                        renderAs={Link} 
-                                        backgroundColor='dark' 
-                                        textColor='link'
-                                        paddingless 
-                                        style={{marginLeft: '5%'}}
-                                    >
-                                        Creator Dashboard
-                                    </Notification>
+                                    {
+                                        currentRole === "User" 
+                                        ? <br/> :
+                                        <Notification 
+                                            to={'/creator'} 
+                                            renderAs={Link} 
+                                            backgroundColor='dark' 
+                                            textColor='link'
+                                            paddingless 
+                                            style={{marginLeft: '5%'}}
+                                        >
+                                            Creator Dashboard
+                                        </Notification>
+                                    }
                                 </Block>
                             </Box>
                         </Box>
