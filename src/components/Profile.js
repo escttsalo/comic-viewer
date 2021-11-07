@@ -2,8 +2,15 @@ import React from 'react';
 import { Block, Form, Heading, Box, Section, Notification, Columns, Icon } from 'react-bulma-components'; //eslint-disable-line
 const { Column } = Columns;
 
+const commonStyles = {
+    width: '85%', 
+    paddingLeft: 25, 
+    marginBottom: '10%'
+};
+
 export default function Profile() {
     const username = "Username";
+    const email = "Email";
 
     return (
         <div>
@@ -19,11 +26,22 @@ export default function Profile() {
                             </Notification>
                             <Box backgroundColor='dark'>
                                 <Block backgroundColor='dark' textColor='light'>
-                                    <Heading subtitle textColor='light' style={{marginBottom: 10}}>
+                                    <Heading subtitle textColor='light' style={{marginBottom: 10, marginTop: 5}}>
                                         <i class="fas fa-user"/> Username
                                     </Heading>
-                                    <p style={{width: '85%', paddingLeft: 25}}>
-                                        {`${username}`}
+                                    <p style={commonStyles}>
+                                        {
+                                            `${username}`
+                                        }
+                                    </p>
+
+                                    <Heading subtitle textColor='light' style={{marginBottom: 10}}>
+                                        <i class="fas fa-solid fa-at"/> Email
+                                    </Heading>
+                                    <p style={commonStyles}>
+                                        {
+                                            `${email}`
+                                        }
                                     </p>
                                 </Block>
                             </Box>
