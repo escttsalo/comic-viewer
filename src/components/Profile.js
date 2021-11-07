@@ -11,7 +11,7 @@ import { Block,
     Tabs 
 } from 'react-bulma-components';
 const { Column } = Columns;
-const { Control, Field, Select } = Form;
+const { Checkbox, Control, Field, Select } = Form;
 const { Tab } = Tabs;
 
 const commonStyles = {
@@ -88,7 +88,7 @@ export default function Profile() {
                                     activeTabs.basic === true ? 
                                     /* Basics Tab */
                                     (   
-                                        <Block backgroundColor='dark' textColor='light' >
+                                        <Block backgroundColor='dark' textColor='light' style={{height: 400}}>
                                             {/* Username */}
                                             <Heading subtitle textColor='light' style={{marginBottom: 10, marginTop: 5}}>
                                                 <i class="fas fa-user"/> Username
@@ -151,8 +151,20 @@ export default function Profile() {
                                     : 
                                     /* Extra Tab*/
                                     (
-                                        <Block>
-                                            
+                                        <Block style={{height: 400}}>
+                                            <Heading subtitle textColor='light' style={{marginBottom: 10, marginTop: 5}}>
+                                                <i class="fas fa-list"/> Preferences
+                                            </Heading>
+                                            <Notification backgroundColor='dark' textColor='light' paddingless style={{marginLeft: '5%'}}>
+                                                Receive email notifications to new updates of comics in your Favourites?
+                                            </Notification>
+                                            <Field textColor='light'>
+                                                <Control >
+                                                    <Checkbox size={3}>
+                                                        Receive email updates
+                                                    </Checkbox>
+                                                </Control>
+                                            </Field>
                                         </Block>
                                     )
                                 }
