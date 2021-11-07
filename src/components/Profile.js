@@ -1,21 +1,37 @@
 import React from 'react';
-import { Block, Box, Section, Notification, Columns } from 'react-bulma-components';
+import { Block, Form, Heading, Box, Section, Notification, Columns, Icon } from 'react-bulma-components'; //eslint-disable-line
 const { Column } = Columns;
 
 export default function Profile() {
+    const username = "Username";
+
     return (
         <div>
-            <Section backgroundColor='danger' style={{height: '75vh'}}>
-                <Columns backgroundColor='grey-light' styles={{width: 'inherit'}}>
+            <Section backgroundColor='black' style={{height: '75vh'}}>
+                <Columns backgroundColor='dark'>
                     {/* Profile*/}
-                    <Column size={6}>
-                        <Notification backgroundColor='dark' color='black'>
-                            Profile
-                        </Notification>
+                    <Column size={'one-third'} offset={1}>
+                        <Box backgroundColor='black'>
+                            <Notification backgroundColor='dark' color='black' textAlign='center'>
+                                <Heading textFamily='code'>
+                                    Profile Information
+                                </Heading>
+                            </Notification>
+                            <Box backgroundColor='dark'>
+                                <Block backgroundColor='dark' textColor='light'>
+                                    <Heading subtitle textColor='light' style={{marginBottom: 10}}>
+                                        <i class="fas fa-user"/> Username
+                                    </Heading>
+                                    <p style={{width: '85%', paddingLeft: 25}}>
+                                        {`${username}`}
+                                    </p>
+                                </Block>
+                            </Box>
+                        </Box>
                     </Column>
 
                     {/* Favourites */}
-                    <Column size={6} offset={0}>
+                    <Column size={'one-third'} offset={2}>
                         <Notification backgroundColor='dark' color='black'>
                             Favourites
                         </Notification>
