@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Box, Message, Navbar, Form} from 'react-bulma-components';
+import { Icon, Button, Box, Message, Navbar, Form} from 'react-bulma-components';
 
 const {Brand, Item, Burger, Container, Menu, Link, Dropdown } = Navbar;
 const {Field, Label, Control, Input, Help} = Form;
@@ -20,7 +20,7 @@ export default function Navigation(){
                     <i className="fab fa-github fa-3x"/>
                 </Item>
 
-                <Item href="https://github.com/escttsalo/comic-viewer" backgroundColor='danger'>
+                <Item href="/" backgroundColor='danger'>
                     <img 
                         alt="Bulma: a modern CSS framework based on Flexbox"
                         height="28"
@@ -38,14 +38,14 @@ export default function Navigation(){
                     {/* fluff */}
                 </Container>
                 <Container align="right" style={{width: 300 , justifyContent: 'space-around'}}>
-                    <Item href="#" renderAs='div' hoverable={true} > 
+                    <Item renderAs='div' hoverable={true} > 
                         <Link color='light' arrowless={true} renderAs='div' style={{width: 300 , justifyContent: 'space-around'}} >
                             <Button color='danger' renderAs='span' >
                                 Login
                             </Button>
                         </Link>
                         <Dropdown right={true}>
-                            <Item href='#' style={{flexDirection: 'row-reverse'}}>
+                            <Item renderAs='div' style={{flexDirection: 'row-reverse'}}>
                                 <Box>
                                     <Message color='info' size='small'>
                                         <Message.Body>
@@ -61,6 +61,9 @@ export default function Navigation(){
                                                 placeholder='Username'
                                                 type='text'
                                             />
+                                            <Icon align='left'>
+                                                <i class="fa-thin fa-right-to-bracket"></i>
+                                            </Icon>
                                         </Control>
                                         <Help> Invalid username! </Help>
 

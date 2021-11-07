@@ -9,7 +9,7 @@ export default function Home(){
                     <Notification color='primary'>
                         This is a container that stretches.
                     </Notification>
-                    <Box>
+                    <Box backgroundColor='dark'>
                         <Tile kind="ancestor">
                             <Tile size={8} vertical>
                                 <Tile>
