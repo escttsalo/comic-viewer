@@ -41,19 +41,19 @@ export default function Navigation(){
                     <Item renderAs='div' hoverable={true} > 
                         <Link color='light' arrowless={true} renderAs='div' style={{width: 300 , justifyContent: 'space-around'}} >
                             <Button color='danger' renderAs='span' >
-                                Login
+                                Menu
                             </Button>
                         </Link>
-                        <Dropdown right={true}>
+                        <Dropdown right={true} backgroundColor='dark'>
                             <Item renderAs='div' style={{flexDirection: 'row-reverse'}}>
-                                <Box>
-                                    <Message color='info' size='small'>
-                                        <Message.Body>
+                                <Box backgroundColor='black'>
+                                    <Message color='info' size='small' backgroundColor='dark'>
+                                        <Message.Body backgroundColor='dark' textColor='light'>
                                             Please enter your login credentials.
                                         </Message.Body>
                                     </Message>
                                     <Field>
-                                        <Label>
+                                        <Label textColor='light'>
                                             Username
                                         </Label>
                                         <Control>
@@ -62,12 +62,12 @@ export default function Navigation(){
                                                 type='text'
                                             />
                                             <Icon align='left'>
-                                                <i class="fa-thin fa-right-to-bracket"></i>
+                                                <i class="fas fa-user"/>
                                             </Icon>
                                         </Control>
-                                        <Help> Invalid username! </Help>
+                                        <Help textColor='danger'> Invalid username! </Help>
 
-                                        <Label>
+                                        <Label textColor='light'>
                                             Password
                                         </Label>
                                         <Control>
@@ -76,12 +76,12 @@ export default function Navigation(){
                                                 type='text'
                                             />
                                         </Control>
-                                        <Help> Invalid password! </Help>
+                                        <Help textColor='danger'> Invalid password! </Help>
 
                                         <Field>
                                             <Control>
                                                 <Button color='link'>
-                                                    Send
+                                                    Login
                                                 </Button>
                                             </Control>
                                         </Field>
