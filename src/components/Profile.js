@@ -68,7 +68,7 @@ export default function Profile() {
             <Section backgroundColor='black' >
                 <Columns backgroundColor='dark' marginless style={{paddingBottom: '3rem'}}>
                     {/* Profile*/}
-                    <Column size={'one-third'} offset={1} style={{marginTop: '3%'}}>
+                    <Column size={5} offset={0} style={{marginTop: '3%'}}>
                         
                         <Box backgroundColor='black'>
                             {/* Profile Information */}
@@ -175,22 +175,23 @@ export default function Profile() {
                     </Column>
 
                     {/* Favourites */}
-                    <Column size={'one-third'} offset={2} style={{marginTop: '3%'}}>
-                        <Box backgroundColor='black'>
+                    <Column size={6} offset={1} style={{marginTop: '3%'}}>
+                        <Box backgroundColor='black' >
                             <Notification backgroundColor='dark' color='black' textAlign='center'>
                                 <Heading textFamily='code'>
                                     Favourites
                                 </Heading>
                             </Notification>
-                            <Box backgroundColor='dark'>
-                                <Tile kind='ancestor'>
-                                    <Tile>
+                            <Box backgroundColor='dark' >
+                                <Tile kind='ancestor' >
+                                    <Tile >
                                         <Tile kind='parent' vertical>
-                                            <Tile kind='child'>
+                                            <Tile kind='child' align='center'>
                                                 <Heading subtitle textColor='light' marginless align='center'>Comic Name</Heading>
                                                 <Notification  paddingless backgroundColor='dark' textColor='light' align='center'> Comic Tags</Notification>
                                                 {/* <Heading subtitle textColor='light'>Comic rating</Heading> */}
                                                 <Image
+                                                    style={{width: 175}}
                                                     src='https://i.ibb.co/c8B8VXr/klemen-vrankar-m-YL3-OWayf-Uc-unsplash-1.jpg'
                                                 />
                                             </Tile>
