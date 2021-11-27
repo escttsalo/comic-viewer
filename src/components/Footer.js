@@ -1,25 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Block, Footer, Container, Notification, Box } from 'react-bulma-components';
 
 
 //Style Components
-const StyledLink = styled.a`
-    color: blue;
-    a:link{
-        color: white;
-    }
-`;
-
-const StyledPar = styled.p`
-    color: beige;
-    background-color: dark;
-`;
-
-const StyledStr = styled.strong`
-    color: beige;
-`;
-
+import { StyledLink, StyledPar, StyledStr } from './Styled/FooterStyles';
 
 //Style Object 
 const boxStyles = {
@@ -29,7 +13,6 @@ const boxStyles = {
     marginTop: '2rem', 
     margin: 'auto',
 };
-
 
 //Component
 const AppFooter = () => {
