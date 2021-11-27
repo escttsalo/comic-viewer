@@ -42,7 +42,7 @@ const ProfileMenu = () => {
         "Admin"
     ];
 
-    const favorites = [
+    const favorites = [ //eslint-disable-line
         {
             cover: '',
             tags: ['', ''],

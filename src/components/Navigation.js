@@ -1,15 +1,48 @@
 import React, { useState } from 'react';
-import { Icon, Button, Box, Message, Navbar, Form} from 'react-bulma-components';
+import { Button, Navbar } from 'react-bulma-components';
+import LoginForm from './LoginForm';
+import ProfileForm from './ProfileForm';
 
 const {Brand, Item, Burger, Container, Menu, Link, Dropdown } = Navbar;
-const {Field, Label, Control, Input, Help} = Form;
+
+const initialActive = {
+    burger: '',
+    modal: '',
+};
+
+const menuName = {
+    profile: 'Profile',
+    login: 'Login'
+};
+
 
 export default function Navigation(){
-    let [isActive, setActive] = useState('');
+    const [isActive, setActive] = useState(initialActive);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [activeItem, setActiveItem] = useState(false);
+    const { burger, modal } = isActive;
 
     const handleClick = e => {
         e.preventDefault();
-        isActive==='' ? setActive("is-active") : setActive(isActive="");
+        console.log(e.target.className);
+        setActiveItem(!activeItem);
+        if (e.target.className.search('burger')>0) {
+            burger==='' ? setActive({...isActive, burger: 'is-active'}) : setActive({...isActive, burger: '' });
+        }
+        if (e.target.className.search('button')>0) {
+            console.log('check');
+            modal==='' ? setActive({...isActive, modal: 'is-active'}) : setActive({...isActive, modal: ''});
+        }
+    };
+
+    const handleLogin = e => {
+        e.preventDefault();
+        setLoggedIn(!loggedIn);
+    };
+
+    const handleLink = e => { //eslint-disable-line
+        e.preventDefault();
+        setActiveItem(!activeItem);
     };
 
     return (
@@ -29,64 +62,25 @@ export default function Navigation(){
                     />
                 </Item>
                 {/* Hamburger style menu in mobile */}
-                <Burger data-target='navbarmenu' onClick={handleClick} className={isActive}/>
+                <Burger data-target='navbarmenu' onClick={handleClick} className={burger}/>
             </Brand>
 
             {/*Menu on right */}
-            <Menu id='navbarmenu' className={isActive}>
+            <Menu id='navbarmenu' className={burger} backgroundColor='dark'>
                 <Container>
                     {/* fluff */}
                 </Container>
-                <Container align="right" style={{width: 300 , justifyContent: 'space-around'}}>
-                    <Item renderAs='div' hoverable={true} > 
-                        <Link color='light' arrowless={true} renderAs='div' style={{width: 300 , justifyContent: 'space-around'}} >
-                            <Button color='danger' renderAs='span' >
-                                Menu
+                <Container align="right" backgroundColor='dark'>
+                    <Item renderAs='div' active={activeItem} style={{ cursor: 'default', width: 300, justifyContent: 'center'}}> 
+                        <Link color='light' arrowless renderAs='div' backgroundColor='dark'>
+                            <Button color='danger' renderAs='span' onClick={handleClick}>
+                                {/* Login/Profile*/}
+                                { !loggedIn ? menuName.login : menuName.profile }
                             </Button>
                         </Link>
-                        <Dropdown right={true} backgroundColor='dark'>
-                            <Item renderAs='div' style={{flexDirection: 'row-reverse'}}>
-                                <Box backgroundColor='black'>
-                                    <Message color='info' size='small' backgroundColor='dark'>
-                                        <Message.Body backgroundColor='dark' textColor='light'>
-                                            Please enter your login credentials.
-                                        </Message.Body>
-                                    </Message>
-                                    <Field>
-                                        <Label textColor='light'>
-                                            Username
-                                        </Label>
-                                        <Control>
-                                            <Input 
-                                                placeholder='Username'
-                                                type='text'
-                                            />
-                                            <Icon align='left'>
-                                                <i class="fas fa-user"/>
-                                            </Icon>
-                                        </Control>
-                                        <Help textColor='danger'> Invalid username! </Help>
-
-                                        <Label textColor='light'>
-                                            Password
-                                        </Label>
-                                        <Control>
-                                            <Input 
-                                                placeholder='Password'
-                                                type='text'
-                                            />
-                                        </Control>
-                                        <Help textColor='danger'> Invalid password! </Help>
-
-                                        <Field>
-                                            <Control>
-                                                <Button color='link'>
-                                                    Login
-                                                </Button>
-                                            </Control>
-                                        </Field>
-                                    </Field>
-                                </Box>
+                        <Dropdown renderAs='div' right boxed backgroundColor='dark'>
+                            <Item renderAs='div' style={{flexDirection: 'row-reverse', position: 'relative', float: 'left'}}>
+                                { !loggedIn ? <LoginForm handleLogin={handleLogin}/> : <ProfileForm handleLogin={handleLogin}/> }
                             </Item>
                         </Dropdown>
                     </Item>

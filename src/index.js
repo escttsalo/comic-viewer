@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
@@ -11,6 +11,8 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Profile from './components/Profile';
 
+import { Box, Modal } from 'react-bulma-components'; //eslint-disable-line
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -22,11 +24,22 @@ ReactDOM.render(
 
 //App is being declared here in case of any helper functions in the future. e.g. auth
 function App() {
+  const [showModal, toggleModal] = useState('card'); //eslint-disable-line
+
+
   return (
     <div className="App">
       <header className="App-header">
         <Navigation />
       </header>
+      
+      {/* <div >
+        <Content>
+          <Box>
+            Hey
+          </Box>
+        </Content>
+      </div> */}
 
       <Switch>
         <Route path='/profile' component={Profile}/>
@@ -38,6 +51,13 @@ function App() {
       </Switch>
 
       <Footer />
+      {/* <Modal show={showModal === 'card'} showClose={false} onClose={() => toggleModal()}>
+        <Modal.Content>
+          <Box backgroundColor='warning'>
+            I'm here now!
+          </Box>
+        </Modal.Content>
+      </Modal> */}
     </div>
   );
 }

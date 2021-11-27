@@ -4,6 +4,7 @@
         "bulma",
         "hoverable",
         "marginless",
+        "navbarmenu",
         "paddingless"
     ]
 }
