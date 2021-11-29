@@ -3,24 +3,23 @@ import { Tile, Heading, Image, Section, Container, Notification, Box } from 'rea
 
 export default function Home(){
     return (
-        <div>
-            <Section>
-                <Container breakpoint='fluid' max={true}>
-                    <Notification color='primary'>
-                        This is a container that stretches.
-                    </Notification>
-                    <Box backgroundColor='dark'>
-                        <Tile kind="ancestor">
-                            <Tile size={8} vertical>
-                                <Tile>
+        <Section>
+            <Container breakpoint='fluid' max={true}>
+                <Notification color='primary'>
+                    This is a container that stretches.
+                </Notification>
+                <Box backgroundColor='dark'>
+                    <Tile kind="ancestor">
+                        <Tile size={8} vertical>
+                            <Tile>
                                 <Tile kind="parent" vertical>
                                     <Tile kind="child" renderAs={Notification} color="primary">
-                                    <Heading>Vertical...</Heading>
-                                    <Heading subtitle>Top tile</Heading>
+                                        <Heading>Vertical...</Heading>
+                                        <Heading subtitle>Top tile</Heading>
                                     </Tile>
                                     <Tile kind="child" renderAs={Notification} color="warning">
-                                    <Heading>Tiles...</Heading>
-                                    <Heading subtitle>Bottom Tile...</Heading>
+                                        <Heading>Tiles...</Heading>
+                                        <Heading subtitle>Bottom Tile...</Heading>
                                     </Tile>
                                 </Tile>
                                 <Tile kind="parent">
@@ -49,12 +48,11 @@ export default function Home(){
                                     <Heading subtitle>With even more content</Heading>
                                     <div className="content" />
                                 </div>
-                                </Tile>
                             </Tile>
-                        </Tile> 
-                    </Box>
-                </Container>
-            </Section>
-        </div>
+                        </Tile>
+                    </Tile> 
+                </Box>
+            </Container>
+        </Section>
     );
 };

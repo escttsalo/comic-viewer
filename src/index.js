@@ -32,14 +32,6 @@ function App() {
       <header className="App-header">
         <Navigation />
       </header>
-      
-      {/* <div >
-        <Content>
-          <Box>
-            Hey
-          </Box>
-        </Content>
-      </div> */}
 
       <Switch>
         <Route path='/profile' component={Profile}/>
